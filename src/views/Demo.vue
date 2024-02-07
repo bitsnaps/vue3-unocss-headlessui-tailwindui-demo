@@ -11,7 +11,7 @@ import api from '@/api'
 const store = useStore()
 
 const mouse = useMouseClick()
-const sentence = ref('君子不器。')
+const sentence = ref('A gentleman has no tools.')
 
 onMounted(() => {
   fetchSentence()
@@ -19,7 +19,7 @@ onMounted(() => {
 
 async function fetchSentence() {
   const resp = await api.oneSentence()
-  sentence.value = resp.hitokoto
+  sentence.value = `"${resp[0].q}" ~ ${resp[0].a}`
 }
 </script>
 
